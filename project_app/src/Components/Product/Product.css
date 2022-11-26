@@ -1,0 +1,44 @@
+.app__prod_container{
+    background: var(--color-pestigeBlue);
+    min-height: 100vh;
+    color: var(--color-white);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    position: relative;
+
+}
+.separator{
+    width: 10px;
+    height: 80vh;
+    background: var(--color-black);
+    margin: 0 2rem;
+    
+}
+
+.app__prod_container-Store,.app__prod_container-Sell{
+    flex: 1;
+    height: 80vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.f_btn{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+}
+
+/* retailer css */
+.app__prod_retailer-Buy{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.app__prod_retailer-Buy *{
+    margin: 10px 0;
+}

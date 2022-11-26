@@ -25,7 +25,7 @@ function LoginComp({ signup, signin }) {
       }),
     })
     const data = await response.json()
-    console.log(data)
+    // console.log(data)
 
     if (data.user) {
       alert('Login successful')

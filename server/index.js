@@ -26,7 +26,7 @@ app.post('/api/register',async(req, res) => {
             contact: req.body.contact,
             role: req.body.role,
         })
-        res.json({status: "ok"})
+        return res.json({status: "ok",user:user})
     } catch (error) {
         res.json({status: "error"})
         
@@ -41,7 +41,7 @@ app.post('/api/login',async(req, res) => {
             role: req.body.role,
         })
         if(user){
-            return res.json({status:"ok",user: true})
+            return res.json({status:"ok",user: user})
         }
         else{
             return res.json({status: 'error', user:false})
