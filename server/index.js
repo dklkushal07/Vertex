@@ -10,7 +10,7 @@ app.use(cors())
 
 //------------------CHANGE THE URL
 try{
-    mongoose.connect('mongodb+srv://:@cluster0.ul7qv.mongodb.net/Storehub?retryWrites=true&w=majority')
+    mongoose.connect('mongodb://localhost:27017/vertexDB')
 }catch(error){
 
 }
