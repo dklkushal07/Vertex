@@ -27,7 +27,10 @@ function LoginComp({ signup, signin }) {
     const data = await response.json()
     // console.log(data)
 
+    
+
     if (data.user) {
+      window.localStorage.setItem("user",JSON.stringify(data.user))
       alert('Login successful')
       if (role == "Consumer"){
         // redirect to consumer dashboard

@@ -4,10 +4,17 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 
 const User = require('./models/user.model')
+const Stock = require("./models/stock")
 
 app.use(cors())
 
-mongoose.connect('mongodb://localhost:27017/vertexDB')
+//------------------CHANGE THE URL
+try{
+    mongoose.connect('mongodb+srv://:@cluster0.ul7qv.mongodb.net/Storehub?retryWrites=true&w=majority')
+}catch(error){
+
+}
+
 
 app.listen(1337,()=>{
     console.log('Server started on 1337')
@@ -15,7 +22,7 @@ app.listen(1337,()=>{
 )
 
 app.use(express.json())
-
+// --------------------------------------AUTH------------------------------------
 app.post('/api/register',async(req, res) => {
     console.log(req.body)
     try {
@@ -46,4 +53,26 @@ app.post('/api/login',async(req, res) => {
         else{
             return res.json({status: 'error', user:false})
         }
+})
+
+//-------------------------------------Stock----------------------------------------
+
+app.post('/api/upload/stock',async (req,res) => {
+    const {weightStore,weightSell,farmer} = req.body;
+    const stock = await Stock.create({
+        weightSell:weightSell,
+        weightStore:weightStore,
+        farmer:farmer
+    });
+
+    if(stock){
+        return res.json({
+            message:"Stock added successfully"
+        })
+    }
+
+    return res.json({
+        message:"Error in stock addition"
     })
+
+})
