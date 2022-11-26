@@ -1,7 +1,17 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import "./Navigation.css"
 import { Link } from 'react-router-dom'
 const Navigation = () => {
+
+  const [user, setUser] = useState({})
+
+  const retrieveUser = () => {
+    let data= window.localStorage.getItem("user")
+    setUser(JSON.parse(data));
+  }
+  useEffect(() => {
+    retrieveUser();
+  },[])
   return (
     <>
     <div id='home' className='flex__center section__padding app__navigation-container '>
@@ -16,9 +26,19 @@ const Navigation = () => {
         </ul>
       </div>
       <div className='app__navigation-profile subtext'>
-        <Link to={"/signup"} className="link white"><h4>SignUp</h4></Link>
-        <div className='app__navigation-profile_bar'></div>
-        <Link to={"/signin"} className="link white"><h4>SignIn</h4></Link>
+        {
+          user ? (
+            <Link to={"/"} className="link white"><h4>{user.username}</h4></Link>
+          ):(
+          <>
+          <Link to={"/signup"} className="link white"><h4>SignUp</h4></Link>
+          <div className='app__navigation-profile_bar'></div>
+          <Link to={"/signin"} className="link white"><h4>SignIn</h4></Link>
+          </>
+          )
+        }
+
+        
       </div>
     </div>
     </>
