@@ -1,0 +1,4 @@
+.app__profile-container{
+    min-height: 100vh;
+    background: var(--color-bayWharf);
+}
