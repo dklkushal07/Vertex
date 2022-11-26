@@ -1,7 +1,7 @@
 import React from 'react'
 import {Navigation} from "./../../Components/index"
 import "./Home.css"
-import  {potato } from '../../assests/index'
+import  {potato} from '../../assets/index'
 
 const Home = () => {
   return (
