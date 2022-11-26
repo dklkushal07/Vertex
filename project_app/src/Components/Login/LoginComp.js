@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
+import {useNavigate} from "react-router-dom"
+import { authenticate } from '../../apiCalls/loginApi';
 import "./Login.css"
 function LoginComp({ signup, signin }) {
   // async function signInFunction(){
 
   // }
+
+  const navigator = useNavigate()
 
   const [username, setName] = useState('')
   const [password, setPassword] = useState('')
@@ -25,16 +29,18 @@ function LoginComp({ signup, signin }) {
       }),
     })
     const data = await response.json()
-    // console.log(data)
+    const {user} = data; 
+    console.log(user)
 
+    window.localStorage.setItem("user", JSON.stringify(user));
+    
     if (data.user) {
-      alert('Login successful')
       if (role == "Consumer"){
         // redirect to consumer dashboard
         // window.location.href=''
       }
       else if(role=="Farmer"){
-        // redirect to farmer dashboard
+        navigator("/farmer")
       }
       else if(role=="Employee"){
         // redirect to employee dashboard
