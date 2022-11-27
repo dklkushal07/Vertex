@@ -53,6 +53,7 @@ const Product = ({producer,consumer}) => {
                 <label className='subtext'>Weight in kilos</label><br/>
                 <input className='p_input' type={"number"} value={weight.weightSell} onChange={handleChange("weightSell")} required autoFocus max={"50"}/>
             </div>
+            <button type='button' className='custom__button f_btn' onClick={sendStock}>Confirm</button>
           </>
         )
       }
@@ -64,11 +65,11 @@ const Product = ({producer,consumer}) => {
             <label className='subtext'>Weight in kilos</label><br/>
             <input type={"number"} autoFocus required max={"50"}/>
           </div>
+          <button type='button' className='custom__button f_btn' >Confirm</button>
           </>
         )
       }
-
-        <button type='button' className='custom__button f_btn' onClick={sendStock}>Confirm</button>
+      
     </div>
   )
 }

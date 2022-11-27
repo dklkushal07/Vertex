@@ -38,8 +38,7 @@ function LoginComp({ signup, signin }) {
       window.localStorage.setItem("user",JSON.stringify(data.user))
       alert('Login successful')
       if (role == "Consumer"){
-        // redirect to consumer dashboard
-        // window.location.href=''
+        navigator("/retailer")
       }
       else if(role=="Farmer"){
         navigator("/farmer")

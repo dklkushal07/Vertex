@@ -4,7 +4,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 
 const User = require('./models/user.model')
-const Stock = require("./models/stock")
+const Stock = require("./models/stock.model")
 
 app.use(cors())
 
