@@ -16,7 +16,7 @@ const Navigation = () => {
     <>
     <div id='home' className='flex__center section__padding app__navigation-container '>
       <div className='app_navigation-title'>
-        <Link to={"/"} className="link"><h1 className='headtext app_navigation-title_name'>StoreHub</h1></Link>
+        <Link to={"/"} className="link"><h1 className='headtext app_navigation-title_name'>Aalu Bazaar</h1></Link>
       </div>
       <div className='app__navigation-menus flex__center subtext'>
         {/* <ul className='app__navigation-menus_menuItems flex__center'>
