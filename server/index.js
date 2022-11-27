@@ -76,3 +76,32 @@ app.post('/api/upload/stock',async (req,res) => {
     })
 
 })
+
+//------------------------------------Order-------------------------------------------------
+app.post("/api/upload/orders",async (req,res) => {
+    const {itemSize,orderedBy} = req.body
+    const order = await Order.create(req.body);
+    if(order){
+        return res.json({
+            message:"Order created successfully",
+            order:order
+        })
+    }
+    return res.json({
+        message:"Order creation failed",
+        order:false
+    })
+})
+app.get("/api/get/orders",async (req,res) => {
+    const order = await Order.find({});
+    if(order){
+        return res.json({
+            message:"Your orders are",
+            order:order
+        })
+    }
+    return res.json({
+        message:"Empty order list.",
+        order:false
+    })
+})
