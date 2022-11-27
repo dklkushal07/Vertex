@@ -3,9 +3,6 @@ import {useNavigate} from "react-router-dom"
 import { authenticate } from '../../apiCalls/loginApi';
 import "./Login.css"
 function LoginComp({ signup, signin }) {
-  // async function signInFunction(){
-
-  // }
 
   const navigator = useNavigate()
 
@@ -103,7 +100,7 @@ function LoginComp({ signup, signin }) {
               <select name="roler" value={role} onChange={(e) => setRole(e.target.value)}>
                 <option value="Consumer" selected>Consumer</option>
                 <option value="Farmer">Farmer</option>
-                <option value="Employee">Employee</option>
+                {/* <option value="Employee">Employee</option> */}
               </select>
             </div>
             <button type='button' className='custom__button l_btn' onClick={signUpFunction}>
@@ -128,7 +125,7 @@ function LoginComp({ signup, signin }) {
               <select name="roler" value={role} onChange={(e) => setRole(e.target.value)}>
                 <option value="Consumer" selected>Consumer</option>
                 <option value="Farmer">Farmer</option>
-                <option value="Employee">Employee</option>
+                {/* <option value="Employee">Employee</option> */}
               </select>
             </div>
             <button type='button' className='custom__button l_btn' onClick={signInFunction} >

@@ -13,14 +13,14 @@ const Home = () => {
         </div>
         <div className='home__body-contents '>
             <h2 className='headtext'>
-                DELICIOUS POTATO
+                About Us
             </h2>
             <p className='subtext'>
-                Lorem ipsum dolor sit amet adipisicing elit. Itaque ex impedit, quisquam porro obcaecati nihil? Consectetur, libero neque dolores eligendi asperiores expedita rem. Quae laboriosam dignissimos recusandae ipsam.
+            A web-based system that can be accessed by the farmers and consumers and is managed and monitored by storehouse.
             </p>
-            <button className='custom__button'>
+            {/* <button className='custom__button'>
                 View More
-            </button>
+            </button> */}
         </div>
     </div>
     </>
