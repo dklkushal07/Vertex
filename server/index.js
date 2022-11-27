@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 
 const User = require('./models/user.model')
 const Stock = require("./models/stock")
+const Order = require("./models/order")
 
 app.use(cors())
 
@@ -75,4 +76,33 @@ app.post('/api/upload/stock',async (req,res) => {
         message:"Error in stock addition"
     })
 
+})
+
+//------------------------------------Order-------------------------------------------------
+app.post("/api/upload/orders",async (req,res) => {
+    const {itemSize,orderedBy} = req.body
+    const order = await Order.create(req.body);
+    if(order){
+        return res.json({
+            message:"Order created successfully",
+            order:order
+        })
+    }
+    return res.json({
+        message:"Order creation failed",
+        order:false
+    })
+})
+app.get("/api/get/orders",async (req,res) => {
+    const order = await Order.find({});
+    if(order){
+        return res.json({
+            message:"Your orders are",
+            order:order
+        })
+    }
+    return res.json({
+        message:"Empty order list.",
+        order:false
+    })
 })
