@@ -1,8 +1,19 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
+const {ObjectId} = mongoose.Schema;
 
-const Stock = new mongoose.Schema({
-    productID: {type: Integer, required: true, unique: true},
-    weightInKG: {type: Integer, required: true},
-    seller: {type: String},
-    buyer:{}
-})
+const stockModel = new mongoose.Schema({
+    weightSell:{
+        type:Number,
+        required:true
+    },
+    farmer:{
+        type: ObjectId,
+        ref:"UserData"
+    },
+    weightStore:{
+        type:Number,
+        required:true
+    }
+},{timestamps:true})
+
+module.exports = mongoose.model("Stock",stockModel);

@@ -19,16 +19,17 @@ const Navigation = () => {
         <Link to={"/"} className="link"><h1 className='headtext app_navigation-title_name'>StoreHub</h1></Link>
       </div>
       <div className='app__navigation-menus flex__center subtext'>
-        <ul className='app__navigation-menus_menuItems flex__center'>
+        {/* <ul className='app__navigation-menus_menuItems flex__center'>
           <li className='app__navigation-menus_menuItem'>Home</li>
           <li className='app__navigation-menus_menuItem'>About</li>
           <li className='app__navigation-menus_menuItem'>Aim</li>
-        </ul>
+        </ul> */}
       </div>
       <div className='app__navigation-profile subtext'>
         {
           user ? (
-            <Link to={"/"} className="link white"><h4>{user.username}</h4></Link>
+            user.role == 'Consumer'? (<Link to={"/retailer"} className="link white"><h4>{user.username}</h4></Link>):
+            (<Link to={"/farmer"} className="link white"><h4>{user.username}</h4></Link>)
           ):(
           <>
           <Link to={"/signup"} className="link white"><h4>SignUp</h4></Link>
